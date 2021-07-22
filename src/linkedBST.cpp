@@ -1,7 +1,7 @@
 #include <iostream>
 #include "linkedBST.h"
 
-bool linkedBST:: isEmpty()
+bool linkedBST:: isempty()
 {
     if (!this->root)
     {
@@ -13,7 +13,7 @@ bool linkedBST:: isEmpty()
     
 }
 
-void linkedBST::add(Node*& r, int value)
+void linkedBST::addRec(Node*& r, int value)
 {
     if(r==nullptr)
     {
@@ -25,11 +25,11 @@ void linkedBST::add(Node*& r, int value)
 
     if( value < r->data)
     {
-        add(r->leftChild, value);
+        addRec(r->leftChild, value);
     }
     else
     {
-         add(r->rightChild, value);
+         addRec(r->rightChild, value);
     }
 }
 
@@ -64,17 +64,17 @@ bool linkedBST::searchBST(Node *r, int searchValue)
     }
 }
 
- Node* linkedBST::max(Node *r)
+ Node* linkedBST::maxx(Node *r)
 {
     
     if(r->rightChild==nullptr)
     {
         return r;
     }
-     return max(r->rightChild);   
+     return maxx(r->rightChild);   
 }
 
-Node* linkedBST::min(Node *r)
+Node* linkedBST::minn(Node *r)
 {
     
     if(r->leftChild==nullptr)
@@ -82,7 +82,7 @@ Node* linkedBST::min(Node *r)
         return r;
     }
     
-     return min(r->leftChild);
+     return minn(r->leftChild);
     
 }
 
@@ -103,12 +103,12 @@ bool linkedBST::removeBST(Node*& r, int dataToDelete)
         }
         else if(r->leftChild != nullptr)
         {
-            Node *temp = max(r->leftChild);
+            Node *temp = maxx(r->leftChild);
             r->data = temp ->data;
             delete temp;
         }
         else{
-            Node *temp = min(r->rightChild);
+            Node *temp = minn(r->rightChild);
             r->data = temp->data;
             delete temp;
         }
@@ -138,7 +138,7 @@ bool linkedBST::removeBST(Node*& r, int dataToDelete)
 
 void linkedBST::inorderTraversal(Node* r)
 {
-    if (isEmpty())
+    if (isempty())
     {
         std::cout<<"The tree is empty"<<std::endl;
         return;

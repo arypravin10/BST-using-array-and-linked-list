@@ -30,9 +30,8 @@ class array_BST:public AbstractBST{
     void add(int key);
     friend std::ostream &operator<<(std::ostream& output, array_BST &obj);
     void removeBST(int key);
-    void max();
-    void min();
+    int max();
+    int min();
     void exists(int key);
    
-
 };

@@ -1,5 +1,6 @@
 #ifndef LinkedBST_H
 #define LinkedBST_H
+#include "interfaceclass.h"
 
 class  Node
 {
@@ -13,21 +14,40 @@ class  Node
     Node(int data, Node *leftChild, Node *rightChild) : data(data), leftChild(leftChild), rightChild(rightChild) {}
 };
 
-
-class linkedBST
-// : public AbstractBST
+class linkedBST : public AbstractBST
 {
     public:
         Node *root;
         linkedBST(): root(nullptr){}
         linkedBST(Node * r): root(r){}
 
-        virtual bool isEmpty();
-        virtual void add( Node*& r ,int value);
-        Node* max (Node *r);
-        Node* min (Node *r);
-        virtual bool removeBST(Node*& r, int dataToDelete);
-        virtual bool searchBST(Node *r,int searchValue);
+        bool isempty();
+        virtual void add(int key)
+        {
+            this ->addRec(this->root, key);
+        }
+        void addRec( Node*& r ,int value);
+
+        virtual int max ()
+        {
+            
+            return this->maxx(this->root)->data;
+        }
+        virtual int min ()
+        {
+             return this->minn(this->root)->data;
+        }
+
+        Node* maxx (Node *r);
+        Node* minn (Node *r);
+        bool removeBST(Node*& r, int dataToDelete);
+        bool searchBST(Node *r,int searchValue);
+        virtual void exists(int key)
+        {
+            searchBST(this->root, key);
+
+        }
+
         void inorderTraversal(Node* r);
     
 };

@@ -2,29 +2,30 @@
 #include "linkedBST.h"
 #include "arrayBST.h"
 
-
 int main()
 {
 // LinkedBST implementation
+std::cout<<"\nLinked BST implementation"<<std::endl;
 
  linkedBST * BST = new linkedBST();
       
-std::cout<<BST->isEmpty()<<std::endl;
-    BST->add(BST->root, 5);
-    std::cout<<BST->isEmpty()<<std::endl;
+std::cout<<BST->isempty()<<std::endl;
+    BST->add( 5);
+    std::cout<<BST->isempty()<<std::endl;
     BST->removeBST(BST->root, 1);
     BST->removeBST(BST->root, 5);
     BST->inorderTraversal(BST->root);
-    BST->add(BST->root, 1);
-    BST->add(BST->root, 8);
-    BST->add(BST->root, 7);
-    BST->add(BST->root, 5);
-    BST->add(BST->root, 4);
-    BST->searchBST(BST->root, 1);
-    BST->searchBST(BST->root, 10);
+    BST->add(1);
+    BST->add( 8);
+    BST->add( 7);
+    BST->add(5);
+    BST->add(4);
+    BST->exists( 1);
+    BST->exists( 10);
     BST->inorderTraversal(BST->root);
 
 // Array BST implementation
+std::cout<<"\nArray BST implementation"<<std::endl;
 
     array_BST a;
      a.removeBST(1);
@@ -57,6 +58,5 @@ std::cout<<BST->isEmpty()<<std::endl;
    
     std::cout<<a<<std::endl;
     a.max();
-
 
 }

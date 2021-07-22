@@ -61,7 +61,7 @@ void array_BST::removeBST(int key)
    removed(1, key);
 }
 
-void array_BST::max()
+int array_BST::max()
 {
 
    if (isempty())
@@ -73,9 +73,10 @@ void array_BST::max()
       std::cout<<"The maximum value is:";
       std::cout << getmax(1) << std::endl;
    }
+   return 0;
 }
 
-void array_BST::min()
+int array_BST::min()
 {
 
    if (isempty())
@@ -87,6 +88,7 @@ void array_BST::min()
       std::cout<<"The minimum value is:";
       std::cout << getmin(1) << std::endl;
    }
+   return 0;
 }
 
 void array_BST::exists(int key)
@@ -119,9 +121,11 @@ void array_BST::exists(int key)
 
 int array_BST::getmax(int index)
 {
+   
 
    if (!isempty())
    {
+       
       while (index < array_size)
       {
          if ((2*index+1) <array_size && array_tree[2 * index + 1] != 0)
